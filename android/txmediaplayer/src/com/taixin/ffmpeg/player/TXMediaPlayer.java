@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
- * Copyright (C) 2013 Zhang Rui <bbcallen@gmail.com>
+ * Copyright (C) 2014 Yu Yun Long <yuyunlong@163.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -118,10 +118,10 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
 
     /**
      * Default constructor. Consider using one of the create() methods for
-     * synchronously instantiating a IjkMediaPlayer from a Uri or resource.
+     * synchronously instantiating a txMediaPlayer from a Uri or resource.
      * <p>
-     * When done with the IjkMediaPlayer, you should call {@link #release()}, to
-     * free the resources. If not released, too many IjkMediaPlayer instances
+     * When done with the txMediaPlayer, you should call {@link #release()}, to
+     * free the resources. If not released, too many txMediaPlayer instances
      * may result in an exception.
      * </p>
      */
@@ -158,7 +158,7 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     }
 
     /*
-     * Update the IjkMediaPlayer SurfaceTexture. Call after setting a new
+     * Update the txMediaPlayer SurfaceTexture. Call after setting a new
      * display surface.
      */
     private native void _setVideoSurface(Surface surface);
@@ -380,15 +380,15 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     public native long getDuration();
 
     /**
-     * Releases resources associated with this IjkMediaPlayer object. It is
+     * Releases resources associated with this txMediaPlayer object. It is
      * considered good practice to call this method when you're done using the
-     * IjkMediaPlayer. In particular, whenever an Activity of an application is
+     * txMediaPlayer. In particular, whenever an Activity of an application is
      * paused (its onPause() method is called), or stopped (its onStop() method
-     * is called), this method should be invoked to release the IjkMediaPlayer
+     * is called), this method should be invoked to release the txMediaPlayer
      * object, unless the application has a special need to keep the object
      * around. In addition to unnecessary resources (such as memory and
      * instances of codecs) being held, failure to call this method immediately
-     * if a IjkMediaPlayer object is no longer needed may also lead to
+     * if a txMediaPlayer object is no longer needed may also lead to
      * continuous battery consumption for mobile devices, and playback failure
      * for other applications if no multiple instances of the same codec are
      * supported on a device. Even if multiple instances of the same codec are
@@ -424,10 +424,10 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     public MediaInfo getMediaInfo() {
         MediaInfo mediaInfo = new MediaInfo();
 
-        mediaInfo.mVideoDecoder = "ijkmedia";
+        mediaInfo.mVideoDecoder = "txmedia";
         mediaInfo.mVideoDecoderImpl = "SW";
 
-        mediaInfo.mAudioDecoder = "ijkmedia";
+        mediaInfo.mAudioDecoder = "txmedia";
         mediaInfo.mAudioDecoderImpl = "SW";
 
         return mediaInfo;
@@ -466,11 +466,11 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
 
     private static native final void native_init();
 
-    private native final void native_setup(Object IjkMediaPlayer_this);
+    private native final void native_setup(Object txMediaPlayer_this);
 
     private native final void native_finalize();
 
-    private native final void native_message_loop(Object IjkMediaPlayer_this);
+    private native final void native_message_loop(Object txMediaPlayer_this);
 
     protected void finalize() {
         native_finalize();
@@ -489,7 +489,7 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
             TXMediaPlayer player = mWeakPlayer.get();
             if (player == null || player.mNativeMediaPlayer == 0) {
                 DebugLog.w(TAG,
-                        "IjkMediaPlayer went away with unhandled events");
+                        "txMediaPlayer went away with unhandled events");
                 return;
             }
 
@@ -557,7 +557,7 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     /*
      * Called from native code when an interesting event happens. This method
      * just uses the EventHandler system to post the event back to the main app
-     * thread. We use a weak reference to the original IjkMediaPlayer object so
+     * thread. We use a weak reference to the original txMediaPlayer object so
      * that the native code is safe from the object disappearing from underneath
      * it. (This is the cookie passed to native_setup().)
      */

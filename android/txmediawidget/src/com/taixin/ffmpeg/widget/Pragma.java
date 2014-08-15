@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Zhang Rui <bbcallen@gmail.com>
+ * Copyright (C) 2014 Yu Yun Long <yuyunlong@163.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,6 @@ package com.taixin.ffmpeg.widget;
  * configurated by app project
  */
 public class Pragma {
-    //public static final boolean ENABLE_VERBOSE = tv.danmaku.ijk.media.player.pragma.Pragma.ENABLE_VERBOSE;
+    //public static final boolean ENABLE_VERBOSE = tv.danmaku.tx.media.player.pragma.Pragma.ENABLE_VERBOSE;
     public static final boolean ENABLE_VERBOSE = com.taixin.ffmpeg.player.pragma.Pragma.ENABLE_VERBOSE;
 }

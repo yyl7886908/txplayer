@@ -5,11 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.view.Surface;
 
-/**
- * @author bbcallen
- * 
- *         Optional interface default implements
- */
+
 public abstract class BaseMediaPlayer implements IMediaPlayer {
     private boolean mIsLogEnabled;
 
