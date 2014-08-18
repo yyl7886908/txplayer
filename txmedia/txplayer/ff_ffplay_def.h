@@ -35,7 +35,7 @@
  * NEXT:  buffering for the second time after START
  * MAX:   ...
  */
-#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (100)
+#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (10)
 #define DEFAULT_NEXT_HIGH_WATER_MARK_IN_MS      (1 * 1000)
 #define DEFAULT_MAX_HIGH_WATER_MARK_IN_MS       (5 * 1000)
 
