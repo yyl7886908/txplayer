@@ -35,13 +35,14 @@
  * NEXT:  buffering for the second time after START
  * MAX:   ...
  */
-#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (10)
+#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (100)
 #define DEFAULT_NEXT_HIGH_WATER_MARK_IN_MS      (1 * 1000)
 #define DEFAULT_MAX_HIGH_WATER_MARK_IN_MS       (5 * 1000)
 
 #define BUFFERING_CHECK_PER_BYTES               (512)
+#define BUFFERING_CHECK_PER_MILLISECONDS        (500)
 
-#define MAX_QUEUE_SIZE (15 * 1024 * 1024)
+#define MAX_QUEUE_SIZE (10 * 1024 * 1024)
 #define MIN_FRAMES 50000
 
 /* SDL audio buffer size, in samples. Should be small to have precise
