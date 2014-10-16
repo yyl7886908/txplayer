@@ -2013,7 +2013,10 @@ static int read_thread(void *arg)
 
     opts = setup_find_stream_info_opts(ic, ffp->codec_opts);
     orig_nb_streams = ic->nb_streams;
-
+    
+/* onvif 修改开始前刺探流的缓冲大小*/
+    ic->probesize = 5 * 1024;
+    ic->max_analyze_duration = 1  * AV_TIME_BASE;
     err = avformat_find_stream_info(ic, opts);
     if (err < 0) {
         av_log(NULL, AV_LOG_WARNING,

@@ -28,21 +28,21 @@
 #include "ff_ffplay_config.h"
 #include "ff_ffmsg_queue.h"
 
-#define DEFAULT_HIGH_WATER_MARK_IN_BYTES        (256 * 1024)
+#define DEFAULT_HIGH_WATER_MARK_IN_BYTES        (16 * 1024)
 
 /*
  * START: buffering after prepared/seeked
  * NEXT:  buffering for the second time after START
  * MAX:   ...
  */
-#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (10)
+#define DEFAULT_START_HIGH_WATER_MARK_IN_MS     (1)
 #define DEFAULT_NEXT_HIGH_WATER_MARK_IN_MS      (1 * 1000)
 #define DEFAULT_MAX_HIGH_WATER_MARK_IN_MS       (5 * 1000)
 
-#define BUFFERING_CHECK_PER_BYTES               (512)
+#define BUFFERING_CHECK_PER_BYTES               (128)
 
-#define MAX_QUEUE_SIZE (15 * 1024 * 1024)
-#define MIN_FRAMES 50000
+#define MAX_QUEUE_SIZE (5 * 1024 * 1024)
+#define MIN_FRAMES 500
 
 /* SDL audio buffer size, in samples. Should be small to have precise
    A/V sync as SDL does not have hardware buffer fullness info. */
