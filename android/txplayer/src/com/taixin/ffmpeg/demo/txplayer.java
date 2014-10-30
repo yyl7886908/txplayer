@@ -28,8 +28,9 @@ public class txplayer extends Activity
 		//mVideoPath = "http://live.gslb.letv.com/gslb?stream_id=btv6_800&tag=live&ext=m3u8";
 		//mVideoPath ="http://192.168.1.113:8080/video/liyue720p.mp4";
 		//mVideoPath ="http://192.168.1.113:8080/video/bingheshiji202.mp4";
-		mVideoPath ="http://192.168.1.113:8080/video/187.ts";
-		//mVideoPath = "http://www.wowza.com/_h264/BigBuckBunny_175k.mov";
+		//mVideoPath ="rtsp://admin:12345@192.168.1.106:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
+		
+		mVideoPath = "rtsp://192.168.1.105:8555/H264SubStream";
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		if (!TextUtils.isEmpty(intentAction)

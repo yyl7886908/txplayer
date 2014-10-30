@@ -2015,8 +2015,14 @@ static int read_thread(void *arg)
     orig_nb_streams = ic->nb_streams;
     
 /* onvif 修改开始前刺探流的缓冲大小*/
-    ic->probesize = 5 * 1024;
-    ic->max_analyze_duration = 1  * AV_TIME_BASE;
+    /* ic->probesize = 20 * 1024; */
+    /* ic->max_analyze_duration = 5  * AV_TIME_BASE; */
+    av_log(NULL, AV_LOG_WARNING,
+               "ic->probesize  = %d\n", ic->probesize );
+    av_log(NULL, AV_LOG_WARNING,
+               "ic->max_analyze_duration = %d\n",  ic->max_analyze_duration);
+    av_log(NULL, AV_LOG_WARNING,
+               "AV_TIME_BASE = %d\n",  AV_TIME_BASE);
     err = avformat_find_stream_info(ic, opts);
     if (err < 0) {
         av_log(NULL, AV_LOG_WARNING,
