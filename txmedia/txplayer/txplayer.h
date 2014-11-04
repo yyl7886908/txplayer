@@ -181,4 +181,11 @@ int             txmp_get_msg(txMediaPlayer *mp, AVMessage *msg, int block);
 /* 照相接口 */
 void          txmp_photo_image(txMediaPlayer *mp, char *filename);
 
+/* 录制接口 */
+void           txmp_start_recording_rtsp_stream(char *rtsp_stream, char *filename);
+
+/* 停止录制接口 */
+void            txmp_stop_recording_rtsp_stream();
+
+
 #endif

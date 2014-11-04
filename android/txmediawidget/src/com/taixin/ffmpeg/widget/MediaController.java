@@ -550,6 +550,8 @@ public class MediaController extends FrameLayout {
         boolean canSeekForward();
 
 				void photoImage(String filename);
+				
+				void startRecordingRtspStream(String rtspStream, String filename);
     }
 
 }

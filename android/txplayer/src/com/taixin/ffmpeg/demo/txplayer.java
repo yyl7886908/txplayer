@@ -60,6 +60,9 @@ public class txplayer extends Activity
 		 if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
 			 System.out.println("向上建按住------");
 			 mVideoView.photoImage("/storage/external_storage/sda1/photoTest");
+		 }else if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN){
+			 System.out.println("向下按键---");
+			 mVideoView.startRecordingRtspStream("rtsp://xxxxxx", "xxx.ts");
 		 }
 		return super.onKeyDown(keyCode, event);
 	}

@@ -181,6 +181,19 @@ static void txMediaPlayer_photoImage(JNIEnv *env, jobject thiz,  jstring filenam
 }
 /* 照相函数 */
 
+/* 开始录制函数 */
+static void txMediaPlayer_startRecordingRtsp(JNIEnv *env, jobject thiz,jstring rtsp_stream,  jstring filename)
+{
+    ALOGE("=====txplayer_jni.c startRecordingRtsp filename = %s\n", (*env)->GetStringUTFChars(env, filename, NULL));
+    txmp_start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_stream, NULL), (*env)->GetStringUTFChars(env, filename, NULL));
+}
+
+/* 停止录制函数 */
+static void txMediaPlayer_stopRecordingRtsp(JNIEnv *env, jobject thiz)
+{
+    txmp_stop_recording_rtsp_stream();
+}
+
 static void
 txMediaPlayer_stop(JNIEnv *env, jobject thiz)
 {
@@ -621,6 +634,7 @@ static JNINativeMethod g_methods[] = {
     { "_setAvCodecOption",  "(Ljava/lang/String;Ljava/lang/String;)V", (void *) txMediaPlayer_setAvCodecOption },
     { "_setOverlayFormat",  "(I)V",                                    (void *) txMediaPlayer_setOverlayFormat },
     { "_photoImage",  "(Ljava/lang/String;)V",       (void *) txMediaPlayer_photoImage },
+    { "_startRecordingRtspStream",  "(Ljava/lang/String;Ljava/lang/String;)V",       (void *) txMediaPlayer_startRecordingRtsp },
 };
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)

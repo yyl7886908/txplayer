@@ -297,6 +297,8 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     /*zhaoxiang照相函数的本地接口*/
     private native void _photoImage(String filename);
     
+    private native void _startRecordingRtspStream(String rtspStream, String filename);
+    
     @SuppressLint("Wakelock")
     @Override
     public void setWakeMode(Context context, int mode) {
@@ -678,5 +680,11 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
 	@Override
 	public void photoImage(String filename) {
 		_photoImage(filename);
+	}
+
+	@Override
+	public void startRecordingRtspStream(String rtspStream, String filename) {
+		System.out.println("TXMediaPlayer startRecordingRtspStream now start native method");
+		_startRecordingRtspStream(rtspStream, filename);
 	}
 }

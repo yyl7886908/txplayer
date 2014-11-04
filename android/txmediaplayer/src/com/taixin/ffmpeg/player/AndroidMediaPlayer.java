@@ -337,4 +337,9 @@ public class AndroidMediaPlayer extends SimpleMediaPlayer {
 	public void photoImage(String filename) {
 		System.out.println("Android Media Player filename = "+filename);
 	}
+
+	@Override
+	public void startRecordingRtspStream(String rtspStream, String filename) {
+		System.out.println("Android Media Player startRecordingRtspStream filename = "+filename);
+	}
 }

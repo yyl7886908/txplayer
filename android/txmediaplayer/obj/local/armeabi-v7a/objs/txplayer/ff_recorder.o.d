@@ -1,7 +1,6 @@
-/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txplayer/txplayer.o: \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/txplayer.c \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/txplayer.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffmsg_queue.h \
+/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txplayer/ff_recorder.o: \
+ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c \
+ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.h \
  /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffinc.h \
  /home/yyl/javatool/android-ndk-r9d/sources/cxx-stl/stlport/stlport/assert.h \
  /home/yyl/javatool/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_cprolog.h \
@@ -158,18 +157,9 @@
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/capability.h \
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/pathconf.h \
- /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffmsg.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/txplayer_internal.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_fferror.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_def.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_config.h \
- /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.h
+ /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h
 
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/txplayer.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffmsg_queue.h:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.h:
 
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffinc.h:
 
@@ -484,17 +474,3 @@
 /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/pathconf.h:
 
 /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffmsg.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/txplayer_internal.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_fferror.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_def.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_config.h:
-
-/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.h:

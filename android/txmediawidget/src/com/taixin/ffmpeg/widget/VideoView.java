@@ -592,6 +592,14 @@ MediaController.MediaPlayerControl {
 			mMediaPlayer.photoImage(filename);
 		}
 	}
+	
+	@Override
+	public void startRecordingRtspStream(String rtspStream, String filename) {
+		System.out.println("video view stsp stram = "+rtspStream+", filename = "+filename);
+		if (isInPlaybackState()) {
+			mMediaPlayer.startRecordingRtspStream(rtspStream, filename);
+		}
+	}
 	@Override
 	public void pause() {
 		if (isInPlaybackState()) {

@@ -27,6 +27,7 @@
 #include "txsdl/txsdl.h"
 #include "ff_fferror.h"
 #include "ff_ffplay.h"
+#include "ff_recorder.h"
 #include "txplayer.h"
 
 typedef struct txMediaPlayer {

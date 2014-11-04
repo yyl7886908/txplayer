@@ -637,3 +637,16 @@ void txmp_photo_image(txMediaPlayer *mp, char *filename)
     ffp_photo_image(filename);
     pthread_mutex_unlock(&mp->mutex);
 }
+
+/* 录制接口 */
+void           txmp_start_recording_rtsp_stream(char *rtsp_stream, char *filename)
+{
+    MPTRACE("txmp_start_recording_rtsp_stream  rtsp_stream= %s, filename = %s\n",rtsp_stream,  filename);
+    start_recording_rtsp_stream(rtsp_stream, filename);
+}
+
+/* 停止录制接口 */
+void            txmp_stop_recording_rtsp_stream()
+{
+    MPTRACE("txmp_start_recording_rtsp_stream\n");
+}

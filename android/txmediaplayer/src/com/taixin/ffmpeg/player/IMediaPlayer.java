@@ -65,6 +65,9 @@ public interface IMediaPlayer {
     
     	/*照相接口*/
     public abstract void photoImage(String filename);
+    
+    	/*录制接口*/
+    public abstract void startRecordingRtspStream(String rtspStream, String filename);
 
     public abstract void reset();
 

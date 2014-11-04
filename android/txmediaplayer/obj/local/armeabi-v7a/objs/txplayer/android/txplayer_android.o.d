@@ -176,6 +176,7 @@
  /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../ff_fferror.h \
  /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer_internal.h \
  /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../ff_ffplay.h \
+ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../ff_recorder.h \
  /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer.h
 
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_android.h:
@@ -529,5 +530,7 @@
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer_internal.h:
 
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../ff_ffplay.h:
+
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../ff_recorder.h:
 
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer.h:
