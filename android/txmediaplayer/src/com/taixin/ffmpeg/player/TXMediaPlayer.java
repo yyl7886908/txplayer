@@ -293,7 +293,10 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
     }
 
     private native void _pause() throws IllegalStateException;
-
+    	
+    /*zhaoxiang照相函数的本地接口*/
+    private native void _photoImage(String filename);
+    
     @SuppressLint("Wakelock")
     @Override
     public void setWakeMode(Context context, int mode) {
@@ -671,4 +674,9 @@ public final class TXMediaPlayer extends SimpleMediaPlayer {
         
         return listener.onControlResolveSegmentDuration(segment);
     }
+
+	@Override
+	public void photoImage(String filename) {
+		_photoImage(filename);
+	}
 }

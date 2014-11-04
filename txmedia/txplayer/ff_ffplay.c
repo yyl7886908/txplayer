@@ -56,6 +56,11 @@ static int ffp_format_control_message(struct AVFormatContext *s, int type,
 
 static AVPacket flush_pkt;
 
+/* 照相函数使用到的变量 */
+/* 0代表不照相，1代表照相 */
+static int photo_flag = 0;
+ static char  file_name[64];
+/* 照相函数使用到的变量 */
 // FFP_MERGE: cmp_audio_fmts
 // FFP_MERGE: get_valid_channel_layout
 
@@ -934,6 +939,71 @@ static int queue_picture(FFPlayer *ffp, AVFrame *src_frame, double pts, double d
 static int g_vdps_counter = 0;
 static int64_t g_vdps_total_time = 0;
 #endif
+
+/* 照相函数封装 */
+
+static void SaveFrame2(AVFrame *pFrame, int width, int height) {
+  FILE *pFile;
+  char szFilename[32];
+  int y;
+  
+  // Open file
+  sprintf(szFilename, "%s.PPM", file_name);
+  ALOGI("save frame 2  szFilename = %s\n", szFilename);
+  pFile=fopen(szFilename, "wb");
+  if(pFile==NULL){
+      printf("pFile == null\n");
+      return;
+  }
+    /* return; */
+  
+  // Write header
+  fprintf(pFile, "P6\n%d %d\n255\n", width, height);
+  
+  // Write pixel data
+  for(y=0; y<height; y++)
+      {
+          fwrite(pFrame->data[0]+y*pFrame->linesize[0], 1, width*3, pFile);
+      }
+  // Close file
+  fclose(pFile);
+}
+/* 保存frame */
+static void SaveFrame(AVFrame *pFrame, VideoState *is) {
+/* pFrame 原始帧数据 is 视频的VideoState 信息 */
+
+    AVFrame *pFrameRGB;
+    struct SwsContext *sws;
+
+    int width = is->video_st->codec->width;
+    int height = is->video_st->codec->height;
+    int pix_pmt = is->video_st->codec->pix_fmt;
+    pFrameRGB = (AVFrame*)avcodec_alloc_frame();
+    if(pFrameRGB == NULL)
+        return ;
+    uint8_t *buffer;
+    int numBytes;
+    // Determine required buffer size and allocate buffer
+    numBytes = avpicture_get_size(PIX_FMT_RGB24, width, height);
+    buffer = (uint8_t *)av_malloc(numBytes*sizeof(uint8_t));
+
+    // Assign appropriate parts of buffer to image planes in pFrameRGB
+    // Note that pFrameRGB is an AVFrame, but AVFrame is a superset
+    // of AVPicture
+    avpicture_fill((AVPicture *)pFrameRGB, buffer, PIX_FMT_RGB24, width, height);
+
+    sws = sws_getContext(width, height, pix_pmt, width, height, PIX_FMT_RGB24, SWS_BICUBIC, NULL, NULL, NULL);  
+    /* sws_scale(sws, (const uint8_t* const*)pFrame->data, pFrame->linesize, 0, height, pFrameYUV->data, pFrameYUV->linesize); */
+
+     sws_scale(sws, pFrame->data, pFrame->linesize, 0, height, pFrameRGB->data, pFrameRGB->linesize);
+
+    SaveFrame2(pFrameRGB, width, height); 
+    sws_freeContext(sws);
+    av_free(buffer);
+    av_free(pFrameRGB);
+}
+
+/* 照相函数封装 */
 static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *serial)
 {
     VideoState *is = ffp->is;
@@ -992,6 +1062,13 @@ static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *se
 
         frame->sample_aspect_ratio = av_guess_sample_aspect_ratio(is->ic, is->video_st, frame);
 
+        /* 照相函数在此调用 */
+        if(photo_flag == 1)
+            {
+                SaveFrame(frame, is);
+                photo_flag = 0;
+            }
+        /* 照相函数在此调用 */
         if (ffp->framedrop>0 || (ffp->framedrop && get_master_sync_type(is) != AV_SYNC_VIDEO_MASTER)) {
             if (frame->pts != AV_NOPTS_VALUE) {
                 double diff = dpts - get_master_clock(is);
@@ -2015,14 +2092,14 @@ static int read_thread(void *arg)
     orig_nb_streams = ic->nb_streams;
     
 /* onvif 修改开始前刺探流的缓冲大小*/
-    /* ic->probesize = 20 * 1024; */
-    /* ic->max_analyze_duration = 5  * AV_TIME_BASE; */
-    av_log(NULL, AV_LOG_WARNING,
-               "ic->probesize  = %d\n", ic->probesize );
-    av_log(NULL, AV_LOG_WARNING,
-               "ic->max_analyze_duration = %d\n",  ic->max_analyze_duration);
-    av_log(NULL, AV_LOG_WARNING,
-               "AV_TIME_BASE = %d\n",  AV_TIME_BASE);
+    ic->probesize = 20 * 1024;
+    ic->max_analyze_duration = 5  * AV_TIME_BASE;
+    /* av_log(NULL, AV_LOG_WARNING, */
+    /*            "ic->probesize  = %d\n", ic->probesize ); */
+    /* av_log(NULL, AV_LOG_WARNING, */
+    /*            "ic->max_analyze_duration = %d\n",  ic->max_analyze_duration); */
+    /* av_log(NULL, AV_LOG_WARNING, */
+    /*            "AV_TIME_BASE = %d\n",  AV_TIME_BASE); */
     err = avformat_find_stream_info(ic, opts);
     if (err < 0) {
         av_log(NULL, AV_LOG_WARNING,
@@ -2964,3 +3041,13 @@ static int ffp_format_control_message(struct AVFormatContext *s, int type,
 
     return ffp->format_control_message(ffp->format_control_opaque, type, data, data_size);
 }
+
+/* 照相接口 */
+void     ffp_photo_image(char *filename)
+{
+    memset(file_name, 0, sizeof(file_name));
+    photo_flag = 1;
+    sprintf(file_name,"%s", filename);
+    ALOGE("ff_ffplay.c   ff_photo_image   file_name = %s\n", file_name );
+}
+/* 照相接口 */

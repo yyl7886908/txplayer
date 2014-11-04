@@ -2,15 +2,16 @@ package com.taixin.ffmpeg.demo;
 
 import java.io.File;
 
-import com.taixin.ffmpeg.widget.MediaController;
-import com.taixin.ffmpeg.widget.VideoView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
+
+import com.taixin.ffmpeg.widget.MediaController;
+import com.taixin.ffmpeg.widget.VideoView;
 
 public class txplayer extends Activity
 {
@@ -30,7 +31,7 @@ public class txplayer extends Activity
 		//mVideoPath ="http://192.168.1.113:8080/video/bingheshiji202.mp4";
 		//mVideoPath ="rtsp://admin:12345@192.168.1.106:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
 		
-		mVideoPath = "rtsp://192.168.1.105:8555/H264SubStream";
+		mVideoPath = "rtsp://admin:12345@192.168.1.105:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		if (!TextUtils.isEmpty(intentAction)
@@ -53,4 +54,14 @@ public class txplayer extends Activity
 		mVideoView.requestFocus();
 		mVideoView.start();
 	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		 if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+			 System.out.println("向上建按住------");
+			 mVideoView.photoImage("/storage/external_storage/sda1/photoTest");
+		 }
+		return super.onKeyDown(keyCode, event);
+	}
+	
 }

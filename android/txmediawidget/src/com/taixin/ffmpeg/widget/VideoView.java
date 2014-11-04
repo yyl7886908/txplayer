@@ -585,7 +585,13 @@ MediaController.MediaPlayerControl {
 		}
 		mTargetState = STATE_PLAYING;
 	}
-
+	
+	@Override
+	public void photoImage(String filename) {
+		if (isInPlaybackState()) {
+			mMediaPlayer.photoImage(filename);
+		}
+	}
 	@Override
 	public void pause() {
 		if (isInPlaybackState()) {
@@ -672,4 +678,6 @@ MediaController.MediaPlayerControl {
 	public boolean canSeekForward() {
 		return mCanSeekForward;
 	}
+
+	
 }

@@ -167,6 +167,20 @@ txMediaPlayer_start(JNIEnv *env, jobject thiz)
     txmp_dec_ref_p(&mp);
 }
 
+/* 照相函数 */
+static void txMediaPlayer_photoImage(JNIEnv *env, jobject thiz,  jstring filename)
+{
+     txMediaPlayer *mp = jni_get_media_player(env, thiz);
+     JNI_CHECK_GOTO(mp, env, "java/lang/IllegalStateException", "mpjni: stop: null mp", LABEL_RETURN);
+     char *c_filename = NULL;
+     c_filename = (*env)->GetStringUTFChars(env, filename, NULL);
+     ALOGE("=====txplayer_jni.c  c_filename = %s\n", c_filename);
+     txmp_photo_image(mp, c_filename);
+     LABEL_RETURN:
+     txmp_dec_ref_p(&mp);
+}
+/* 照相函数 */
+
 static void
 txMediaPlayer_stop(JNIEnv *env, jobject thiz)
 {
@@ -606,6 +620,7 @@ static JNINativeMethod g_methods[] = {
     { "_setAvFormatOption", "(Ljava/lang/String;Ljava/lang/String;)V", (void *) txMediaPlayer_setAvFormatOption },
     { "_setAvCodecOption",  "(Ljava/lang/String;Ljava/lang/String;)V", (void *) txMediaPlayer_setAvCodecOption },
     { "_setOverlayFormat",  "(I)V",                                    (void *) txMediaPlayer_setOverlayFormat },
+    { "_photoImage",  "(Ljava/lang/String;)V",       (void *) txMediaPlayer_photoImage },
 };
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)

@@ -70,6 +70,7 @@ import android.widget.TextView;
  * Functions like show() and hide() have no effect when MediaController is
  * created in an xml layout.
  */
+@SuppressLint("NewApi")
 public class MediaController extends FrameLayout {
     private static final String TAG = MediaController.class.getSimpleName();
 
@@ -547,6 +548,8 @@ public class MediaController extends FrameLayout {
         boolean canSeekBackward();
 
         boolean canSeekForward();
+
+				void photoImage(String filename);
     }
 
 }

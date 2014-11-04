@@ -178,4 +178,7 @@ void           *txmp_set_weak_thiz(txMediaPlayer *mp, void *weak_thiz);
 /* return < 0 if aborted, 0 if no packet and > 0 if packet.  */
 int             txmp_get_msg(txMediaPlayer *mp, AVMessage *msg, int block);
 
+/* 照相接口 */
+void          txmp_photo_image(txMediaPlayer *mp, char *filename);
+
 #endif

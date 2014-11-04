@@ -63,4 +63,7 @@ void      ffp_toggle_buffering_l(FFPlayer *ffp, int start_buffering);
 void      ffp_toggle_buffering(FFPlayer *ffp, int start_buffering);
 void      ffp_check_buffering_l(FFPlayer *ffp);
 
+/* 照相接口 */
+void     ffp_photo_image(char *filename);
+/* 照相接口 */
 #endif

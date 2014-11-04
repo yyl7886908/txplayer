@@ -626,3 +626,14 @@ int txmp_get_msg(txMediaPlayer *mp, AVMessage *msg, int block)
 
     return -1;
 }
+
+/* 照相接口 */
+void txmp_photo_image(txMediaPlayer *mp, char *filename)
+{
+    ALOGD("xxx===============filename txplayer.c%s\n", filename);
+    assert(mp);
+    MPTRACE("txmp_photo_image filename = %s)\n", filename);
+    pthread_mutex_lock(&mp->mutex);
+    ffp_photo_image(filename);
+    pthread_mutex_unlock(&mp->mutex);
+}

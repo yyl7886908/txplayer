@@ -332,4 +332,9 @@ public class AndroidMediaPlayer extends SimpleMediaPlayer {
             notifyOnPrepared();
         }
     }
+
+	@Override
+	public void photoImage(String filename) {
+		System.out.println("Android Media Player filename = "+filename);
+	}
 }

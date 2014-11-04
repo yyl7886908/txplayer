@@ -62,6 +62,9 @@ public interface IMediaPlayer {
     public abstract long getDuration();
 
     public abstract void release();
+    
+    	/*照相接口*/
+    public abstract void photoImage(String filename);
 
     public abstract void reset();
 
