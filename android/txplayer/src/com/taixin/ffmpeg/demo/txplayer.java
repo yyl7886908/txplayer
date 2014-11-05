@@ -31,7 +31,7 @@ public class txplayer extends Activity
 		//mVideoPath ="http://192.168.1.113:8080/video/bingheshiji202.mp4";
 		//mVideoPath ="rtsp://admin:12345@192.168.1.106:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
 		
-		mVideoPath = "rtsp://admin:12345@192.168.1.105:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
+		mVideoPath = "rtsp://admin:12345@192.168.1.103:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		if (!TextUtils.isEmpty(intentAction)

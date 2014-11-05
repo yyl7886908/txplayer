@@ -157,7 +157,8 @@
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/capability.h \
  /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/pathconf.h \
- /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h
+ /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h \
+ /home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavformat/avio.h
 
 /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.h:
 
@@ -474,3 +475,5 @@
 /home/yyl/javatool/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/pathconf.h:
 
 /home/yyl/github/txplayer/txmedia/txsdl/ffmpeg/../txsdl_stdinc.h:
+
+/home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavformat/avio.h:
