@@ -20,6 +20,7 @@ public class txplayer extends Activity
 	private MediaController mMediaController;
 
 	private String mVideoPath;
+	private String filename = "/storage/external_storage/sda1/3.avi";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class txplayer extends Activity
 			 mVideoView.photoImage("/storage/external_storage/sda1/photoTest");
 		 }else if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN){
 			 System.out.println("向下按键---");
-			 mVideoView.startRecordingRtspStream("rtsp://xxxxxx", "xxx.ts");
+			 mVideoView.startRecordingRtspStream(mVideoPath, filename);
 		 }
 		return super.onKeyDown(keyCode, event);
 	}
