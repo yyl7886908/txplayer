@@ -942,13 +942,14 @@ static int64_t g_vdps_total_time = 0;
 
 /* 照相函数封装 */
 
+
 static void SaveFrame2(AVFrame *pFrame, int width, int height) {
   FILE *pFile;
   char szFilename[32];
   int y;
   
   // Open file
-  sprintf(szFilename, "%s.PPM", file_name);
+  sprintf(szFilename, "%s", file_name);
   ALOGI("save frame 2  szFilename = %s\n", szFilename);
   pFile=fopen(szFilename, "wb");
   if(pFile==NULL){
@@ -968,6 +969,7 @@ static void SaveFrame2(AVFrame *pFrame, int width, int height) {
   // Close file
   fclose(pFile);
 }
+
 /* 保存frame */
 static void SaveFrame(AVFrame *pFrame, VideoState *is) {
 /* pFrame 原始帧数据 is 视频的VideoState 信息 */
@@ -1066,6 +1068,7 @@ static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *se
         if(photo_flag == 1)
             {
                 SaveFrame(frame, is);
+                /* save_frame_to_jpeg(frame, is); */
                 photo_flag = 0;
             }
         /* 照相函数在此调用 */
