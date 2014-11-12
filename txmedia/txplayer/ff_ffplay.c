@@ -1005,6 +1005,66 @@ static void SaveFrame(AVFrame *pFrame, VideoState *is) {
     av_free(pFrameRGB);
 }
 
+
+/* jpeg */
+static bool Save_Frame(int nszBuffer, uint8_t *buffer)
+ {
+
+     bool bRet = false;
+     char cOutFileName[200];
+     memset(cOutFileName, 0, 200);
+     sprintf(cOutFileName, "%s", file_name);
+     printf("Save frame   cOutFileName = %s\n", cOutFileName);
+     ALOGE("cOutFileName photo ipg name = %s\n", cOutFileName);
+     if( nszBuffer > 0 )
+         {
+             FILE *pFile = pFile = fopen(cOutFileName, "wb");
+             if(pFile)
+                 {
+                     fwrite(buffer, sizeof(uint8_t), nszBuffer, pFile);
+                     bRet = true;
+                     fclose(pFile);
+                 }
+         }
+     return bRet;
+ }
+
+static bool WriteJPEG (AVCodecContext *pCodecCtx, AVFrame *pFrame, uint8_t *buffer, int numBytes)
+ {
+     bool bRet = false;
+     AVCodec *pMJPEGCodec=NULL;
+     AVCodecContext *pMJPEGCtx = avcodec_alloc_context3(pMJPEGCtx);
+     if( pMJPEGCtx )
+         {
+             pMJPEGCtx->bit_rate = pCodecCtx->bit_rate;
+             pMJPEGCtx->width = pCodecCtx->width;
+             pMJPEGCtx->height = pCodecCtx->height;
+             pMJPEGCtx->pix_fmt = PIX_FMT_YUVJ420P;
+             pMJPEGCtx->codec_id = CODEC_ID_MJPEG;
+             pMJPEGCtx->codec_type = AVMEDIA_TYPE_VIDEO;
+             pMJPEGCtx->time_base.num = pCodecCtx->time_base.num;
+             pMJPEGCtx->time_base.den = pCodecCtx->time_base.den;
+             pMJPEGCodec = avcodec_find_encoder(pMJPEGCtx->codec_id );
+
+
+             if( pMJPEGCodec && (avcodec_open2( pMJPEGCtx, pMJPEGCodec, NULL) >= 0) )
+                 {
+                     pMJPEGCtx->qmin = pMJPEGCtx->qmax = 3;
+                     pMJPEGCtx->mb_lmin = pMJPEGCtx->lmin = pMJPEGCtx->qmin * FF_QP2LAMBDA;
+                     pMJPEGCtx->mb_lmax = pMJPEGCtx->lmax = pMJPEGCtx->qmax * FF_QP2LAMBDA;
+                     pMJPEGCtx->flags |= CODEC_FLAG_QSCALE;
+                     pFrame->quality = 10;
+                     pFrame->pts = 0;
+                     int szBufferActual = avcodec_encode_video(pMJPEGCtx, buffer, numBytes, pFrame);
+            
+                     if( Save_Frame(szBufferActual, buffer ) )
+                         bRet = true;
+
+                     avcodec_close(pMJPEGCtx);
+                 }
+         }
+     return bRet;
+ }
 /* 照相函数封装 */
 static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *serial)
 {
@@ -1048,6 +1108,16 @@ static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *se
         is->video_finished = *serial;
 
     if (got_picture) {
+          /* 照相函数在此调用 */
+        
+        if(photo_flag != 0)
+            {
+                int numBytes=avpicture_get_size(PIX_FMT_YUVJ420P, is->video_st->codec->width, is->video_st->codec->height);
+                uint8_t *buffer=(uint8_t *)av_malloc(numBytes*sizeof(uint8_t));
+                bool bret = WriteJPEG(is->video_st->codec, frame, buffer, numBytes);
+                photo_flag = 0;
+            }
+        /* 照相函数在此调用 */
         int ret = 1;
         double dpts = NAN;
 
@@ -1064,14 +1134,17 @@ static int get_video_frame(FFPlayer *ffp, AVFrame *frame, AVPacket *pkt, int *se
 
         frame->sample_aspect_ratio = av_guess_sample_aspect_ratio(is->ic, is->video_st, frame);
 
-        /* 照相函数在此调用 */
-        if(photo_flag == 1)
-            {
-                SaveFrame(frame, is);
-                /* save_frame_to_jpeg(frame, is); */
-                photo_flag = 0;
-            }
-        /* 照相函数在此调用 */
+        /* /\* 照相函数在此调用 *\/ */
+        /* if(photo_flag == 1) */
+        /*     { */
+        /*         /\* SaveFrame(frame, is); *\/ */
+        /*         /\* save_frame_to_jpeg(frame, is); *\/ */
+        /*         int numBytes=avpicture_get_size(PIX_FMT_YUVJ420P, is->video_st->codec->width, is->video_st->codec->height); */
+        /*         uint8_t *buffer=(uint8_t *)av_malloc(numBytes*sizeof(uint8_t)); */
+        /*         bool bret = WriteJPEG(is->video_st->codec, frame, "/storage/external_storage/sda1/CameraRecordImages/10.jpg", PIX_FMT_YUVJ420P, buffer, numBytes); */
+        /*         photo_flag = 0; */
+        /*     } */
+        /* /\* 照相函数在此调用 *\/ */
         if (ffp->framedrop>0 || (ffp->framedrop && get_master_sync_type(is) != AV_SYNC_VIDEO_MASTER)) {
             if (frame->pts != AV_NOPTS_VALUE) {
                 double diff = dpts - get_master_clock(is);
