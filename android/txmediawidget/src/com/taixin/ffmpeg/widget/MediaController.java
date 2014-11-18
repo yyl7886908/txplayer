@@ -551,7 +551,9 @@ public class MediaController extends FrameLayout {
 
 				void photoImage(String filename);
 				
-				void startRecordingRtspStream(String rtspStream, String filename);
+				void startRecordingRtspStream(String rtspStream, String filename, int time);
+				
+				void stopRecordingRtspStream();
     }
 
 }

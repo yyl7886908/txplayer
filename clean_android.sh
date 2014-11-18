@@ -1,8 +1,8 @@
 #!/bin/bash
-rm -rf  extra/
-cd txmedia/
-rm -rf txyuv/
-cd -
+# rm -rf  extra/
+# cd txmedia/
+# rm -rf txyuv/
+# cd -
 
 cd android/
 
@@ -12,8 +12,8 @@ ndk-build clean
 
 cd -
 
-rm -rf build/
-rm -rf ffmpeg*
+# rm -rf build/
+# rm -rf ffmpeg*
 
 cd ../
 

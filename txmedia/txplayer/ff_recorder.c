@@ -59,7 +59,7 @@ void * rtsp2avi(void * args)
     ALOGI("rtsp_url = %s\n", rtsp_url);
     ALOGI("out_file_name = %s\n", out_file_name);
     bRunTime = record_time;
-    
+     ALOGI("bRunTime ===================== %d\n", bRunTime);
     // Initialize library
     av_log_set_level( AV_LOG_DEBUG );
     av_register_all();
@@ -110,7 +110,7 @@ void * rtsp2avi(void * args)
     ofmt = av_guess_format( NULL, out_file_name, NULL );
     ofcx = avformat_alloc_context();
     ofcx->oformat = ofmt;
-    ALOGI("before avio open2 1.avi!!!!\n");
+   
     avio_open2( &ofcx->pb, out_file_name, AVIO_FLAG_WRITE, NULL, NULL );
 
         // Create output stream
@@ -143,31 +143,90 @@ void * rtsp2avi(void * args)
     //av_read_play(context);//play RTSP (Shouldn't need this since it defaults to playing on connect)
     av_init_packet( &pkt );
     
-    while (!bStop &&  av_read_frame( ifcx, &pkt ) >= 0 && timenow - timestart <= bRunTime ) {
-        if ( pkt.stream_index == i_index ) { //packet is video
-            // Make sure we start on a key frame
-            if ( timestart == timenow && ! ( pkt.flags & AV_PKT_FLAG_KEY ) ) {
-                timestart = timenow = get_time();
-                continue;
-            }
-            got_key_frame = 1;
+    bool record_flag;
+    if(bRunTime>0){
+        while (!bStop &&  av_read_frame( ifcx, &pkt ) >= 0 && timenow - timestart <= bRunTime) {
+            if ( pkt.stream_index == i_index ) { //packet is video
+                // Make sure we start on a key frame
+                if ( timestart == timenow && ! ( pkt.flags & AV_PKT_FLAG_KEY ) ) {
+                    timestart = timenow = get_time();
+                    continue;
+                }
+                got_key_frame = 1;
 
-            pkt.stream_index = ost->id;
+                pkt.stream_index = ost->id;
 
-            /* pkt.pts = ix++; */
-            /* pkt.dts = pkt.pts; */
-
-            pkt.pts = av_rescale_q(pkt.pts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
-            pkt.dts = av_rescale_q(pkt.dts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
+                /* pkt.pts = ix++; */
+                /* pkt.dts = pkt.pts; */
+                pkt.pts = av_rescale_q(pkt.pts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
+                pkt.dts = av_rescale_q(pkt.dts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
+                /* pkt.pts *= ifcx->streams[0]->codec->ticks_per_frame; */
+                /* pkt.dts *= ifcx->streams[0]->codec->ticks_per_frame; */
+                ALOGI("=======ticks_per_frame======%d\n", ifcx->streams[0]->codec->ticks_per_frame);
+                ALOGI("~~~in time base ========%d\n", ifcx->streams[0]->codec->time_base);
+                ALOGI("~~~out time base ========%d\n", ofcx->streams[0]->codec->time_base);
+                ALOGI("=======pts =====%d\n", pkt.pts);
+                ALOGI("=======dts======%d\n", pkt.dts);
          
-            av_interleaved_write_frame( ofcx, &pkt );
-        }
-        av_free_packet( &pkt );
-        av_init_packet( &pkt );
+                av_interleaved_write_frame( ofcx, &pkt );
+            }
+            av_free_packet( &pkt );
+            av_init_packet( &pkt );
 
-        timenow = get_time();
+            timenow = get_time();
+        }
+
+    }else{
+        while (!bStop &&  av_read_frame( ifcx, &pkt ) >= 0) {
+            if ( pkt.stream_index == i_index ) { //packet is video
+                // Make sure we start on a key frame
+                if ( timestart == timenow && ! ( pkt.flags & AV_PKT_FLAG_KEY ) ) {
+                    timestart = timenow = get_time();
+                    continue;
+                }
+                got_key_frame = 1;
+
+                pkt.stream_index = ost->id;
+
+                /* pkt.pts = ix++; */
+                /* pkt.dts = pkt.pts; */
+
+                pkt.pts = av_rescale_q(pkt.pts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
+                pkt.dts = av_rescale_q(pkt.dts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base);
+         
+                av_interleaved_write_frame( ofcx, &pkt );
+            }
+            av_free_packet( &pkt );
+            av_init_packet( &pkt );
+
+            timenow = get_time();
+        }
     }
-    ALOGI("recording rtsp over!!!!\n");
+    /* while (!bStop &&  av_read_frame( ifcx, &pkt ) >= 0 && timenow - timestart <= bRunTime) { */
+    /*     if ( pkt.stream_index == i_index ) { //packet is video */
+    /*         // Make sure we start on a key frame */
+    /*         if ( timestart == timenow && ! ( pkt.flags & AV_PKT_FLAG_KEY ) ) { */
+    /*             timestart = timenow = get_time(); */
+    /*             continue; */
+    /*         } */
+    /*         got_key_frame = 1; */
+
+    /*         pkt.stream_index = ost->id; */
+
+    /*         /\* pkt.pts = ix++; *\/ */
+    /*         /\* pkt.dts = pkt.pts; *\/ */
+
+    /*         pkt.pts = av_rescale_q(pkt.pts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base); */
+    /*         pkt.dts = av_rescale_q(pkt.dts, ifcx->streams[0]->codec->time_base, ofcx->streams[0]->time_base); */
+         
+    /*         av_interleaved_write_frame( ofcx, &pkt ); */
+    /*     } */
+    /*     av_free_packet( &pkt ); */
+    /*     av_init_packet( &pkt ); */
+
+    /*     timenow = get_time(); */
+    /* } */
+    ALOGI("recording rtsp over!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
     av_read_pause( ifcx );
     av_write_trailer( ofcx );
     avio_close( ofcx->pb );
@@ -184,11 +243,11 @@ void * rtsp2avi(void * args)
 参数：1视频流地址 rtsp_stream, 2存储的文件地址 filename
 
 * * ********************/
-void start_recording_rtsp_stream(char *rtsp_stream, char *filename)
+void start_recording_rtsp_stream(char *rtsp_stream, char *filename, int time)
 {
     ALOGI("ff_recorder.c start recording rtsp stream ===\nrtsp_stream = %s\nfilename = %s\n",rtsp_stream, filename );
     bStop = false;
-    record_time = 10;
+    record_time = time;
     memset(rtsp_url, 0,sizeof(rtsp_url));
     memset(out_file_name, 0, sizeof(out_file_name));
     sprintf(rtsp_url, "%s", rtsp_stream);
@@ -210,5 +269,7 @@ void start_recording_rtsp_stream(char *rtsp_stream, char *filename)
 
 void stop_recording_rtsp_stream()
 {
-     ALOGI("ff_recorder.c stop recording rtsp stream rtsp_stream \n" );
+    ALOGI("ff_recorder.c stop recording rtsp stream rtsp_stream \n" );
+    bStop = true;
+    record_time = -1;
 }

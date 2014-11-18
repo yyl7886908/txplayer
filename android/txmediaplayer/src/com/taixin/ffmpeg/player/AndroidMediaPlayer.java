@@ -339,7 +339,12 @@ public class AndroidMediaPlayer extends SimpleMediaPlayer {
 	}
 
 	@Override
-	public void startRecordingRtspStream(String rtspStream, String filename) {
+	public void startRecordingRtspStream(String rtspStream, String filename, int time) {
 		System.out.println("Android Media Player startRecordingRtspStream filename = "+filename);
+	}
+	
+	@Override
+	public void stopRecordingRtspStream(){
+		System.out.println("Android Media Player stopRecordingRtspStream ");
 	}
 }

@@ -28,6 +28,7 @@
 #include "ff_fferror.h"
 #include "ff_ffplay.h"
 #include "ff_recorder.h"
+/* #include "ff_record_mp4.h" */
 #include "txplayer.h"
 
 typedef struct txMediaPlayer {

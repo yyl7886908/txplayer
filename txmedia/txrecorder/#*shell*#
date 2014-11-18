@@ -1,0 +1,1045 @@
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ ls
+Android.mk  txadk  txplayer  txsdl  txutil  txyuv
+[yyl@localhost txmedia]$ cd ..
+[yyl@localhost txplayer]$ ls
+android		  COPYING.LGPLv2.1	   init-android.sh
+clean_android.sh  COPYING.LGPLv3	   init-config.sh
+config		  extra			   README.md
+COPYING.GPLv2	  init-android-libyuv.sh   tools
+COPYING.GPLv3	  init-android-openssl.sh  txmedia
+[yyl@localhost txplayer]$ cd txmedia/
+[yyl@localhost txmedia]$ ls
+Android.mk  txadk  txplayer  txsdl  txutil  txyuv
+[yyl@localhost txmedia]$ mkdir txrecorder
+[yyl@localhost txmedia]$ cp txplayer/ff_recorder.c ./txrecorder/
+[yyl@localhost txmedia]$ cp txplayer/ff_recorder.h  ./txrecorder/
+[yyl@localhost txmedia]$ cp txplayer/Android.mk ./txrecorder/
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ 
+[yyl@localhost txmedia]$ cd ../android/
+[yyl@localhost android]$ ls
+build		    ffmpeg-armv5	  sync-mirrors.sh
+compile-clean.sh    ffmpeg-armv7a	  tools
+compile-ffmpeg.sh   ffmpeg-x86		  txmediaplayer
+compile-openssl.sh  ndk-stack-ijkmp.sh	  txmediawidget
+compile-tx.sh	    setup-as-commiter.sh  txplayer
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:34:5: warning: implicit declaration of function 'ALOGI' [-Wimplicit-function-declaration]
+     ALOGI("rtsp2avi  start =======\n");
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:75:9: warning: implicit declaration of function 'ALOGE' [-Wimplicit-function-declaration]
+         ALOGE( "ERROR: Cannot open input file\n" );
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:76:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:84:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:102:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:237:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:146:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:56:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:55:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:47:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:46:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:42:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:36:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'start_recording_rtsp_stream':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5: error: unknown type name 'pthread_t'
+     pthread_t record_thread;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:257:5: warning: implicit declaration of function 'pthread_create' [-Wimplicit-function-declaration]
+     int ret=pthread_create(&record_thread,NULL,(void*)rtsp2avi ,NULL
+     ^
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/ff_recorder.o] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5: error: unknown type name 'pthread_t'
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+Android NDK: WARNING:/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/Android.mk:txrecorder: non-system libraries in linker flags: -lpthread    
+Android NDK:     This is likely to result in incorrect builds. Try using LOCAL_STATIC_LIBRARIES    
+Android NDK:     or LOCAL_SHARED_LIBRARIES instead to list the library dependencies of the    
+Android NDK:     current module    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:34:5: warning: implicit declaration of function 'ALOGI' [-Wimplicit-function-declaration]
+     ALOGI("rtsp2avi  start =======\n");
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:75:9: warning: implicit declaration of function 'ALOGE' [-Wimplicit-function-declaration]
+         ALOGE( "ERROR: Cannot open input file\n" );
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:76:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:84:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:102:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:237:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:146:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:56:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:55:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:47:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:46:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:42:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:36:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'start_recording_rtsp_stream':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5: error: unknown type name 'pthread_t'
+     pthread_t record_thread;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:257:5: warning: implicit declaration of function 'pthread_create' [-Wimplicit-function-declaration]
+     int ret=pthread_create(&record_thread,NULL,(void*)rtsp2avi ,NULL
+     ^
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/ff_recorder.o] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5: error: unknown type name 'pthread_t'
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:255:5:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+Android NDK: WARNING:/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/Android.mk:txrecorder: non-system libraries in linker flags: -lpthread    
+Android NDK:     This is likely to result in incorrect builds. Try using LOCAL_STATIC_LIBRARIES    
+Android NDK:     or LOCAL_SHARED_LIBRARIES instead to list the library dependencies of the    
+Android NDK:     current module    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:35:5: warning: implicit declaration of function 'ALOGI' [-Wimplicit-function-declaration]
+     ALOGI("rtsp2avi  start =======\n");
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:76:9: warning: implicit declaration of function 'ALOGE' [-Wimplicit-function-declaration]
+         ALOGE( "ERROR: Cannot open input file\n" );
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:77:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:85:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:103:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:238:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:147:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:56:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:50:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:47:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:43:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:39:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:37:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+[armeabi-v7a] SharedLibrary  : libtxrecorder.so
+/home/yyl/javatool/android-ndk-r9d/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.8/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lpthread
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:35: error: undefined reference to 'ALOGI'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:60: error: undefined reference to 'ALOGI'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:61: error: undefined reference to 'ALOGI'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:63: error: undefined reference to 'ALOGI'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:65: error: undefined reference to 'av_log_set_level'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:66: error: undefined reference to 'av_register_all'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:67: error: undefined reference to 'avcodec_register_all'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:68: error: undefined reference to 'avformat_network_init'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:75: error: undefined reference to 'avformat_open_input'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:82: error: undefined reference to 'avformat_find_stream_info'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:101: error: undefined reference to 'ALOGE'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:102: error: undefined reference to 'avformat_close_input'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:76: error: undefined reference to 'ALOGE'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:111: error: undefined reference to 'av_guess_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:112: error: undefined reference to 'avformat_alloc_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:115: error: undefined reference to 'avio_open2'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:119: error: undefined reference to 'avformat_new_stream'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:120: error: undefined reference to 'avcodec_copy_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:132: error: undefined reference to 'avformat_write_header'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:138: error: undefined reference to 'av_dump_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:139: error: undefined reference to 'av_dump_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:145: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:162: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:163: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:172: error: undefined reference to 'av_interleaved_write_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:174: error: undefined reference to 'av_free_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:175: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:149: error: undefined reference to 'av_read_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:231: error: undefined reference to 'av_read_pause'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:232: error: undefined reference to 'av_write_trailer'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:233: error: undefined reference to 'avio_close'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:234: error: undefined reference to 'avformat_free_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:236: error: undefined reference to 'avformat_network_deinit'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:195: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:196: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:198: error: undefined reference to 'av_interleaved_write_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:200: error: undefined reference to 'av_free_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:201: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:181: error: undefined reference to 'av_read_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:83: error: undefined reference to 'ALOGE'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:84: error: undefined reference to 'avformat_close_input'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:262: error: undefined reference to 'ALOGE'
+collect2: error: ld returned 1 exit status
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/libtxrecorder.so] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:39:14: warning: unused variable 'icodec' [-Wunused-variable]
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:39:14:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:78:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:86:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:104:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:170:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:239:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:148:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:58:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:51:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:44:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+[armeabi-v7a] SharedLibrary  : libtxrecorder.so
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:66: error: undefined reference to 'av_log_set_level'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:67: error: undefined reference to 'av_register_all'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:68: error: undefined reference to 'avcodec_register_all'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:69: error: undefined reference to 'avformat_network_init'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:76: error: undefined reference to 'avformat_open_input'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:83: error: undefined reference to 'avformat_find_stream_info'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:103: error: undefined reference to 'avformat_close_input'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:112: error: undefined reference to 'av_guess_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:113: error: undefined reference to 'avformat_alloc_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:116: error: undefined reference to 'avio_open2'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:120: error: undefined reference to 'avformat_new_stream'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:121: error: undefined reference to 'avcodec_copy_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:133: error: undefined reference to 'avformat_write_header'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:139: error: undefined reference to 'av_dump_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:140: error: undefined reference to 'av_dump_format'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:146: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:163: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:164: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:173: error: undefined reference to 'av_interleaved_write_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:175: error: undefined reference to 'av_free_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:176: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:150: error: undefined reference to 'av_read_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:232: error: undefined reference to 'av_read_pause'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:233: error: undefined reference to 'av_write_trailer'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:234: error: undefined reference to 'avio_close'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:235: error: undefined reference to 'avformat_free_context'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:237: error: undefined reference to 'avformat_network_deinit'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:196: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:197: error: undefined reference to 'av_rescale_q'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:199: error: undefined reference to 'av_interleaved_write_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:201: error: undefined reference to 'av_free_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:202: error: undefined reference to 'av_init_packet'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:182: error: undefined reference to 'av_read_frame'
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:85: error: undefined reference to 'avformat_close_input'
+collect2: error: ld returned 1 exit status
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/libtxrecorder.so] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:78:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:86:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:104:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:170:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:239:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:148:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:58:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:51:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:44:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+[armeabi-v7a] SharedLibrary  : libtxrecorder.so
+[armeabi-v7a] Install        : libtxrecorder.so => libs/armeabi-v7a/libtxrecorder.so
+[armeabi-v7a] Install        : libtxsdl.so => libs/armeabi-v7a/libtxsdl.so
+[armeabi-v7a] Install        : libtxutil.so => libs/armeabi-v7a/libtxutil.so
+[armeabi-v7a] Install        : libstlport_shared.so => libs/armeabi-v7a/libstlport_shared.so
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ cd ../txmedia/txrecorder/
+[yyl@localhost txrecorder]$ ls
+Android.mk  ff_recorder.c  ff_recorder.h
+[yyl@localhost txrecorder]$ touch recorder_jni.c
+[yyl@localhost txrecorder]$ /home/yyl/github/txplayer/android
+bash: /home/yyl/github/txplayer/android: 是一个目录
+[yyl@localhost txrecorder]$ ls
+Android.mk     ff_recorder.h  recorder_jni.c	 tx_recorder_jni.h
+ff_recorder.c  loghelp.h      tx_recorder_jni.c
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ 
+[yyl@localhost txrecorder]$ cd ..
+[yyl@localhost txmedia]$ ls
+Android.mk  txadk  txplayer  txrecorder  txsdl	txutil	txyuv
+[yyl@localhost txmedia]$ cd ../
+[yyl@localhost txplayer]$ ls
+android		  COPYING.LGPLv2.1	   init-android.sh
+clean_android.sh  COPYING.LGPLv3	   init-config.sh
+config		  extra			   README.md
+COPYING.GPLv2	  init-android-libyuv.sh   tools
+COPYING.GPLv3	  init-android-openssl.sh  txmedia
+[yyl@localhost txplayer]$ cd android/
+[yyl@localhost android]$ ls
+build		    ffmpeg-armv5	  sync-mirrors.sh
+compile-clean.sh    ffmpeg-armv7a	  tools
+compile-ffmpeg.sh   ffmpeg-x86		  txmediaplayer
+compile-openssl.sh  ndk-stack-ijkmp.sh	  txmediawidget
+compile-tx.sh	    setup-as-commiter.sh  txplayer
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:78:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:86:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:104:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:170:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:239:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:148:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:58:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:51:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:44:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+make: *** No rule to make target `/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder_jni.c', needed by `/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/ff_recorder_jni.o'.  Stop.
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+make: *** No rule to make target `/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder_jni.c', needed by `/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/ff_recorder_jni.o'.  Stop.
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ ls
+build		    ffmpeg-armv5	  sync-mirrors.sh
+compile-clean.sh    ffmpeg-armv7a	  tools
+compile-ffmpeg.sh   ffmpeg-x86		  txmediaplayer
+compile-openssl.sh  ndk-stack-ijkmp.sh	  txmediawidget
+compile-tx.sh	    setup-as-commiter.sh  txplayer
+[yyl@localhost android]$ cd ..
+[yyl@localhost txplayer]$ ls
+android		  COPYING.LGPLv2.1	   init-android.sh
+clean_android.sh  COPYING.LGPLv3	   init-config.sh
+config		  extra			   README.md
+COPYING.GPLv2	  init-android-libyuv.sh   tools
+COPYING.GPLv3	  init-android-openssl.sh  txmedia
+[yyl@localhost txplayer]$ ./clean_android.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Clean          : cpufeatures [armeabi-v7a]
+[armeabi-v7a] Clean          : stlport_shared [armeabi-v7a]
+[armeabi-v7a] Clean          : stlport_static [armeabi-v7a]
+[armeabi-v7a] Clean          : txadk [armeabi-v7a]
+[armeabi-v7a] Clean          : txffmpeg [armeabi-v7a]
+[armeabi-v7a] Clean          : txplayer [armeabi-v7a]
+[armeabi-v7a] Clean          : txrecorder [armeabi-v7a]
+[armeabi-v7a] Clean          : txsdl [armeabi-v7a]
+[armeabi-v7a] Clean          : txutil [armeabi-v7a]
+[armeabi-v7a] Clean          : txutil_android_cpp [armeabi-v7a]
+[armeabi-v7a] Clean          : txutil_c [armeabi-v7a]
+[armeabi-v7a] Clean          : yuv_static [armeabi-v7a]
+/home/yyl/github/txplayer/android
+[yyl@localhost txplayer]$ 
+[yyl@localhost txplayer]$ cd android/
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Compile thumb  : txadk <= txadk_android_os_bundle.c
+[armeabi-v7a] Compile thumb  : txadk <= txadk.c
+[armeabi-v7a] Prebuilt       : libstlport_shared.so <= <NDK>/sources/cxx-stl/stlport/libs/armeabi-v7a/
+[armeabi-v7a] Compile thumb  : txutil_c <= loghelp.c
+[armeabi-v7a] StaticLibrary  : libtxutil_c.a
+[armeabi-v7a] Compile++ thumb: txutil_android_cpp <= jnihelp.cpp
+[armeabi-v7a] StaticLibrary  : libtxutil_android_cpp.a
+[armeabi-v7a] SharedLibrary  : libtxutil.so
+[armeabi-v7a] SharedLibrary  : libtxadk.so
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Prebuilt       : libtxffmpeg.so <= /home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Compile thumb  : txplayer <= ff_cmdutils.c
+[armeabi-v7a] Compile thumb  : txplayer <= ff_ffplay.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c: In function 'SaveFrame':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:983:5: warning: 'avcodec_alloc_frame' is deprecated (declared at /home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavcodec/avcodec.h:3422) [-Wdeprecated-declarations]
+     pFrameRGB = (AVFrame*)avcodec_alloc_frame();
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:1000:6: warning: passing argument 2 of 'sws_scale' from incompatible pointer type [enabled by default]
+      sws_scale(sws, pFrame->data, pFrame->linesize, 0, height, pFram
+      ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffinc.h:33:0,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_def.h:27,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.h:27,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:24:
+/home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libswscale/swscale.h:224:5: note: expected 'const uint8_t * const*' but argument is of type 'uint8_t **'
+ int sws_scale(struct SwsContext *c, const uint8_t *const srcSlice[],
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c: In function 'WriteJPEG':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:1036:6: warning: passing argument 1 of 'avcodec_alloc_context3' from incompatible pointer type [enabled by default]
+      AVCodecContext *pMJPEGCtx = avcodec_alloc_context3(pMJPEGCtx);
+      ^
+In file included from /home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavformat/avformat.h:255:0,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffinc.h:31,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay_def.h:27,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.h:27,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:24:
+/home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavcodec/avcodec.h:3367:17: note: expected 'const struct AVCodec *' but argument is of type 'struct AVCodecContext *'
+ AVCodecContext *avcodec_alloc_context3(const AVCodec *codec);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:1058:22: warning: 'avcodec_encode_video' is deprecated (declared at /home/yyl/github/txplayer/android/build/ffmpeg-armv7a/output/include/libavcodec/avcodec.h:4340) [-Wdeprecated-declarations]
+                      int szBufferActual = avcodec_encode_video(pMJPE
+                      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c: In function 'get_video_frame':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:1117:22: warning: unused variable 'bret' [-Wunused-variable]
+                 bool bret = WriteJPEG(is->video_st->codec, frame, bu
+                      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c: At top level:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:974:13: warning: 'SaveFrame' defined but not used [-Wunused-function]
+ static void SaveFrame(AVFrame *pFrame, VideoState *is) {
+             ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c: In function 'WriteJPEG':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_ffplay.c:1036:22: warning: 'pMJPEGCtx' is used uninitialized in this function [-Wuninitialized]
+      AVCodecContext *pMJPEGCtx = avcodec_alloc_context3(pMJPEGCtx);
+                      ^
+[armeabi-v7a] Compile thumb  : txplayer <= txplayer.c
+[armeabi-v7a] Compile thumb  : txplayer <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:76:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:84:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:102:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:166:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:167:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:237:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:146:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:56:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:55:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:49:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:47:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:46:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:42:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:38:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/ff_recorder.c:36:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+[armeabi-v7a] Compile thumb  : txplayer <= txplayer_android.c
+[armeabi-v7a] Compile thumb  : txplayer <= txplayer_jni.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c: In function 'txMediaPlayer_photoImage':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c:176:17: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+      c_filename = (*env)->GetStringUTFChars(env, filename, NULL);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c: In function 'txMediaPlayer_startRecordingRtsp':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c:188:5: warning: passing argument 1 of 'txmp_start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     txmp_start_recording_rtsp_stream((*env)->GetStringUTFChars(env, 
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_android.h:27:0,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c:31:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer.h:185:16: note: expected 'char *' but argument is of type 'const char *'
+ void           txmp_start_recording_rtsp_stream(char *rtsp_stream, c
+                ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c:188:5: warning: passing argument 2 of 'txmp_start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     txmp_start_recording_rtsp_stream((*env)->GetStringUTFChars(env, 
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_android.h:27:0,
+                 from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/txplayer_jni.c:31:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txplayer/android/../txplayer.h:185:16: note: expected 'char *' but argument is of type 'const char *'
+ void           txmp_start_recording_rtsp_stream(char *rtsp_stream, c
+                ^
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_aout.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_audio.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_error.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_mutex.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_stdinc.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_thread.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_timer.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_vout.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_vout_dummy.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_vout_overlay_ffmpeg.c
+[armeabi-v7a] Compile thumb  : txsdl <= image_convert.c
+[armeabi-v7a] Compile thumb  : txsdl <= android_audiotrack.c
+[armeabi-v7a] Compile thumb  : txsdl <= android_nativewindow.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_android_jni.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_aout_android_audiotrack.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_vout_android_nativewindow.c
+[armeabi-v7a] Compile thumb  : txsdl <= txsdl_vout_android_surface.c
+[armeabi-v7a] Compile thumb  : cpufeatures <= cpu-features.c
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c: In function 'get_file_size':
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c:130:13: warning: unused variable 'ret' [-Wunused-variable]
+     int fd, ret, result = 0;
+             ^
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c: In function 'extract_cpuinfo_field':
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c:202:14: warning: unused variable 'ignore' [-Wunused-variable]
+     int len, ignore;
+              ^
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c: In function 'android_cpuInit':
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c:613:16: warning: unused variable 'architecture' [-Wunused-variable]
+         char*  architecture = NULL;
+                ^
+/home/yyl/javatool/android-ndk-r9d/sources/android/cpufeatures/cpu-features.c:612:16: warning: unused variable 'features' [-Wunused-variable]
+         char*  features = NULL;
+                ^
+[armeabi-v7a] StaticLibrary  : libcpufeatures.a
+[armeabi-v7a] Compile++ thumb: yuv_static <= compare.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= compare_common.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= compare_posix.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert_argb.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert_from.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert_from_argb.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert_to_argb.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= convert_to_i420.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= cpu_id.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= format_conversion.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= planar_functions.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= rotate.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= rotate_argb.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= rotate_mips.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= row_any.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= row_common.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= row_mips.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= row_posix.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale_argb.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale_common.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale_mips.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale_posix.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= video_common.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= compare_neon.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= rotate_neon.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= row_neon.cc
+[armeabi-v7a] Compile++ thumb: yuv_static <= scale_neon.cc
+[armeabi-v7a] StaticLibrary  : libyuv_static.a
+[armeabi-v7a] SharedLibrary  : libtxsdl.so
+[armeabi-v7a] SharedLibrary  : libtxplayer.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:78:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:86:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:104:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:170:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:239:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:148:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:58:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:51:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:44:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+make: *** No rule to make target `/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder_jni.c', needed by `/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/ff_recorder_jni.o'.  Stop.
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= ff_recorder.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c: In function 'rtsp2avi':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:78:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:86:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:104:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+         return ;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:168:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~in time base ========%d\n", ifcx->streams[
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:169:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'AVRational' [-Wformat=]
+                 ALOGI("~~~out time base ========%d\n", ofcx->streams
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:170:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======pts =====%d\n", pkt.pts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:171:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int64_t' [-Wformat=]
+                 ALOGI("=======dts======%d\n", pkt.dts);
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:239:5: warning: 'return' with no value, in function returning non-void [enabled by default]
+     return;
+     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:148:10: warning: unused variable 'record_flag' [-Wunused-variable]
+     bool record_flag;
+          ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:58:17: warning: unused variable 'sFileOutput' [-Wunused-variable]
+     const char *sFileOutput;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:57:17: warning: unused variable 'sFileInput' [-Wunused-variable]
+     const char *sFileInput ;
+                 ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:51:9: warning: unused variable 'o_index' [-Wunused-variable]
+     int o_index;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:49:14: warning: unused variable 'ocodec' [-Wunused-variable]
+     AVCodec *ocodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:48:21: warning: unused variable 'occx' [-Wunused-variable]
+     AVCodecContext *occx;
+                     ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:44:9: warning: variable 'got_key_frame' set but not used [-Wunused-but-set-variable]
+     int got_key_frame = 0;
+         ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:40:14: warning: unused variable 'icodec' [-Wunused-variable]
+     AVCodec *icodec;
+              ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.c:38:20: warning: unused variable 'ifmt' [-Wunused-variable]
+     AVInputFormat *ifmt;
+                    ^
+[armeabi-v7a] Compile thumb  : txrecorder <= tx_recorder_jni.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function '_startRecordingRtsp':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 1 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 2 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function 'registerNativeMethods':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:38:16: error: request for member 'FindClass' in something not a structure or union
+     clazz = env->FindClass(className);
+                ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:42:12: error: request for member 'RegisterNatives' in something not a structure or union
+     if (env->RegisterNatives(clazz, gMethods, numMethods) < 0) {
+            ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function 'JNI_OnLoad':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:77:8: error: request for member 'GetEnv' in something not a structure or union
+  if (vm->GetEnv((void**) &env, JNI_VERSION_1_4) != JNI_OK) {//从VM�
+        ^
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/tx_recorder_jni.o] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$  void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+bash: 未预期的符号 `(' 附近有语法错误
+[yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= tx_recorder_jni.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function '_startRecordingRtsp':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 1 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 2 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function 'registerNativeMethods':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:38:12: error: request for member 'FindClass' in something not a structure or union
+ clazz = env->FindClass(env,className);
+            ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:42:8: error: request for member 'RegisterNatives' in something not a structure or union
+ if (env->RegisterNatives(env, clazz, gMethods, numMethods) < 0) {
+        ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function 'JNI_OnLoad':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:77:8: error: request for member 'GetEnv' in something not a structure or union
+  if (vm->GetEnv((void**) &env, JNI_VERSION_1_4) != JNI_OK) {//从VM�
+        ^
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/tx_recorder_jni.o] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:38:12: error: request for member 'FindClass' in something not a structure or union
+bash: /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:38:12:: 没有那个文件或目录
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+
+[yyl@localhost android]$ [yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+[yyl@localhost android]$ 
+
+[yyl@localhost android]$ [yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= tx_recorder_jni.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function '_startRecordingRtsp':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 1 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 2 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function 'registerNativeMethods':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:38:12: error: request for member 'FindClass' in something not a structure or union
+ clazz = env->FindClass(env,className);
+            ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:42:8: error: request for member 'RegisterNatives' in something not a structure or union
+ if (env->RegisterNatives(env, clazz, gMethods, numMethods) < 0) {
+        ^
+make: *** [/home/yyl/github/txplayer/android/txmediaplayer/obj/local/armeabi-v7a/objs/txrecorder/tx_recorder_jni.o] Error 1
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$       ^
+bash: ^: 未找到命令...
+
+[yyl@localhost android]$ [yyl@localhost android]$ 
+[yyl@localhost android]$ ./compile-tx.sh 
+Android NDK: WARNING: APP_PLATFORM android-9 is larger than android:minSdkVersion 8 in /home/yyl/github/txplayer/android/txmediaplayer/AndroidManifest.xml    
+[armeabi-v7a] Install        : libtxadk.so => libs/armeabi-v7a/libtxadk.so
+[armeabi-v7a] Install        : libtxffmpeg.so => libs/armeabi-v7a/libtxffmpeg.so
+[armeabi-v7a] Install        : libtxplayer.so => libs/armeabi-v7a/libtxplayer.so
+[armeabi-v7a] Compile thumb  : txrecorder <= tx_recorder_jni.c
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c: In function '_startRecordingRtsp':
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 1 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:17:5: warning: passing argument 2 of 'start_recording_rtsp_stream' discards 'const' qualifier from pointer target type [enabled by default]
+     start_recording_rtsp_stream((*env)->GetStringUTFChars(env, rtsp_
+     ^
+In file included from /home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/tx_recorder_jni.c:9:0:
+/home/yyl/github/txplayer/android/txmediaplayer/jni/txmedia/txrecorder/ff_recorder.h:18:6: note: expected 'char *' but argument is of type 'const char *'
+ void start_recording_rtsp_stream(char *rtsp_stream, char *filename, 
+      ^
+[armeabi-v7a] SharedLibrary  : libtxrecorder.so
+[armeabi-v7a] Install        : libtxrecorder.so => libs/armeabi-v7a/libtxrecorder.so
+[armeabi-v7a] Install        : libtxsdl.so => libs/armeabi-v7a/libtxsdl.so
+[armeabi-v7a] Install        : libtxutil.so => libs/armeabi-v7a/libtxutil.so
+[armeabi-v7a] Install        : libstlport_shared.so => libs/armeabi-v7a/libstlport_shared.so
+/home/yyl/github/txplayer/android
+[yyl@localhost android]$ 

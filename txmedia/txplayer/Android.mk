@@ -31,6 +31,7 @@ LOCAL_SRC_FILES += ff_cmdutils.c
 LOCAL_SRC_FILES += ff_ffplay.c
 LOCAL_SRC_FILES += txplayer.c
 LOCAL_SRC_FILES += ff_recorder.c
+# LOCAL_SRC_FILES += ff_record_mp4.c
 
 LOCAL_SRC_FILES += android/txplayer_android.c
 LOCAL_SRC_FILES += android/txplayer_jni.c

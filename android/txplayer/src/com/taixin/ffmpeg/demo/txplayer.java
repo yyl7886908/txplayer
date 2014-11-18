@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.taixin.ffmpeg.player.TXFFMpegRecorder;
 import com.taixin.ffmpeg.widget.MediaController;
 import com.taixin.ffmpeg.widget.VideoView;
 
@@ -20,13 +21,13 @@ public class txplayer extends Activity
 	private MediaController mMediaController;
 
 	private String mVideoPath;
-	private String filename = "/storage/external_storage/sda1/3.avi";
-
+	private String filename = "/storage/external_storage/sda1/CameraRecordVideos/111.avi";
+	private TXFFMpegRecorder recorder;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+		recorder = new TXFFMpegRecorder();
 		//mVideoPath = "http://live.gslb.letv.com/gslb?stream_id=btv6_800&tag=live&ext=m3u8";
 		//mVideoPath ="http://192.168.1.113:8080/video/liyue720p.mp4";
 		//mVideoPath ="http://192.168.1.113:8080/video/bingheshiji202.mp4";
@@ -63,7 +64,8 @@ public class txplayer extends Activity
 			 mVideoView.photoImage("/storage/external_storage/sda1/11111.jpg");
 		 }else if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN){
 			 System.out.println("向下按键---");
-			 mVideoView.startRecordingRtspStream(mVideoPath, filename);
+			 //mVideoView.startRecordingRtspStream(mVideoPath, filename,10);
+			 recorder.startRecoderRTSPStream(mVideoPath, filename, 10);
 		 }
 		return super.onKeyDown(keyCode, event);
 	}

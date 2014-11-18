@@ -594,10 +594,18 @@ MediaController.MediaPlayerControl {
 	}
 	
 	@Override
-	public void startRecordingRtspStream(String rtspStream, String filename) {
-		System.out.println("video view stsp stram = "+rtspStream+", filename = "+filename);
+	public void startRecordingRtspStream(String rtspStream, String filename, int time) {
+		System.out.println("video view start stream = "+rtspStream+", filename = "+filename);
 		if (isInPlaybackState()) {
-			mMediaPlayer.startRecordingRtspStream(rtspStream, filename);
+			mMediaPlayer.startRecordingRtspStream(rtspStream, filename, time);
+		}
+	}
+	
+	@Override
+	public void stopRecordingRtspStream() {
+		System.out.println("video view stop stream");
+		if (isInPlaybackState()) {
+			mMediaPlayer.stopRecordingRtspStream();
 		}
 	}
 	@Override
