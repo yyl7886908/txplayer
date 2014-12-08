@@ -2503,17 +2503,17 @@ static bool g_ffmpeg_global_inited = false;
 
 static void ffp_log_callback_help(void *ptr, int level, const char *fmt, va_list vl)
 {
-    int ffplv = IJK_LOG_VERBOSE;
+    int ffplv = TX_LOG_VERBOSE;
     if (level <= AV_LOG_ERROR)
-        ffplv = IJK_LOG_ERROR;
+        ffplv = TX_LOG_ERROR;
     else if (level <= AV_LOG_WARNING)
-        ffplv = IJK_LOG_WARN;
+        ffplv = TX_LOG_WARN;
     else if (level <= AV_LOG_INFO)
-        ffplv = IJK_LOG_INFO;
+        ffplv = TX_LOG_INFO;
     else if (level <= AV_LOG_VERBOSE)
-        ffplv = IJK_LOG_VERBOSE;
+        ffplv = TX_LOG_VERBOSE;
     else
-        ffplv = IJK_LOG_DEBUG;
+        ffplv = TX_LOG_DEBUG;
 
     if (level <= AV_LOG_INFO)
         VLOG(ffplv, IJK_LOG_TAG, fmt, vl);

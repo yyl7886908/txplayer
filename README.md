@@ -18,3 +18,13 @@ ANDROID BUILD:
 4、 ./compile-ffmpeg.sh armv7a
 5、 ./compile-tx.sh
 
+
+
+MAC OS X BUILD:
+
+1、 cd taxpayer
+2、 ./init-ios.sh
+3、 cd ios
+4、 ./compile-ffmpeg.sh all
+5、 open TXMediaDemo with Xcode
+
